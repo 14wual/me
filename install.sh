@@ -46,30 +46,30 @@ user=$(whoami)
 
 echo "Creating root folder"
 dir_path="/home/$user/.config/me"
-sudo mkdir -p "$dir_path"
+mkdir -p "$dir_path"
 
 echo "Creating bin folders"
-sudo mkdir /home/$user/.config/me/bin
-sudo mkdir /home/$user/.config/me/bin/me
+mkdir /home/$user/.config/me/bin
+mkdir /home/$user/.config/me/bin/me
 
 echo "Creating local folders"
-sudo mkdir /home/$user/.config/me/local
-sudo mkdir /home/$user/.config/me/local/share
-sudo mkdir /home/$user/.config/me/local/share/csv
-sudo mkdir /home/$user/.config/me/local/share/database
+mkdir /home/$user/.config/me/local
+mkdir /home/$user/.config/me/local/share
+mkdir /home/$user/.config/me/local/share/csv
+mkdir /home/$user/.config/me/local/share/database
 
 echo "Creating usr folders"
-sudo mkdir /home/$user/.config/me/usr
-sudo mkdir /home/$user/.config/me/usr/browser
-sudo mkdir /home/$user/.config/me/usr/browser/log
-sudo mkdir /home/$user/.config/me/usr/txt
-sudo mkdir /home/$user/.config/me/usr/txt/archive
-sudo mkdir /home/$user/.config/me/usr/txt/log
+mkdir /home/$user/.config/me/usr
+mkdir /home/$user/.config/me/usr/browser
+mkdir /home/$user/.config/me/usr/browser/log
+mkdir /home/$user/.config/me/usr/txt
+mkdir /home/$user/.config/me/usr/txt/archive
+mkdir /home/$user/.config/me/usr/txt/log
 
 echo "Creating pip folders"
-sudo mkdir /home/$user/.config/me/pip
-sudo mkdir /home/$user/.config/me/pip/app
-sudo mkdir /home/$user/.config/me/pip/app/me
+mkdir /home/$user/.config/me/pip
+mkdir /home/$user/.config/me/pip/app
+mkdir /home/$user/.config/me/pip/app/me
 
 echo "Installing application in pip directory"
 sudo cp me/ /home/$user/.config/me/pip/app/me -r
