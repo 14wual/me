@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo bash install/pip.sh
+
 user=$(whoami)
 
 dir_path="/home/$user/.config/me"
