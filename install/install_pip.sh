@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt install python3-pip
+
 echo "Downloading get-pip.py..."
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
