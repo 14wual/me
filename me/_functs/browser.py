@@ -23,6 +23,7 @@ class Browser:
     def add():
         
         name = input("Name: ")
+        print("For the proper functioning of URLs, write the full url | Example https://github.com/14wual")
         url = input("url: ")
         
         confirm = input("[y/N] The data is ok?: ")
