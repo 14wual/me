@@ -11,7 +11,8 @@
 import sqlite3
 import os
 
-path = '/home/%s/.config/me/local/share/database/password.db' % os.environ['USER']
+user  = input("User: ")
+path = '/home/%s/.config/me/local/share/database/password.db' % user
 
 with open(path, 'w') as file:file.close()
 
