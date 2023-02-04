@@ -8,6 +8,7 @@
 # See proyect >> https://github.com/14wual/me
 # Follow me >> https://twitter.com/codewual
 
+# --------------------Extern Imports--------------------
 try:    
     from datetime import datetime
     import os
@@ -15,6 +16,7 @@ try:
     import csv
 except ImportError: raise ImportError("Failed to import modules. Make sure it is installed correctly and is in the PYTHONPATH.")
 
+# --------------------APP--------------------
 class Notes:
     
     config = configparser.ConfigParser()
