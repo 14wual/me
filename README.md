@@ -1,8 +1,18 @@
 # me
 
-# DO NOT CLONE OR RUN THE SCRIPT, IT IS UNDER DEVELOPMENT AND MAY GENERATE PROBLEMS ON YOUR PC
+Me is an application that allows you to perform certain tasks from the terminal, from having your own (simple) password manager, searching from the web, managing hyperlinks (that is, shortcuts), notes, tasks, ...
 
-# NO CLONE NI EJECUTE EL SCRIPT, ESTA BAJO DESARROLLO Y PUEDE GENERAR PROBLEMAS EN SU PC
+```
+888       888 888     888       d8888 888
+888   o   888 888     888      d88888 888
+888  d8b  888 888     888     d88P888 888        (code by WUAL)
+888 d888b 888 888     888    d88P 888 888            twitter.com/codewual
+888d88888b888 888     888   d88P  888 888     github.com/14wual
+88888P Y88888 888     888  d88P   888 888            youtube: WualPK
+8888P   Y8888 Y88b. .d88P d8888888888 888     
+888P     Y888  "Y88888P" d88P     888 88888888
+```
+
 
 ## Install
 
