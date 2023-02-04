@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo bash install/install_pip.sh
 sudo bash install/pip.sh
 
 user=$(whoami)
