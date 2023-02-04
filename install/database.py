@@ -13,6 +13,8 @@ import os
 
 path = '/home/%s/.config/me/local/share/database/password.db' % os.environ['USER']
 
+with open(path, 'w') as file:file.close()
+
 print("[] Connecting to the ddbb...")
 conn = sqlite3.connect(path)
 
