@@ -11,9 +11,10 @@
 import csv
 import os
 
-notes_inputs_path = '/home/%s/.config/me/usr/txt/log/notes_inputs.csv' % os.environ['USER']
-favorites_path = '/home/%s/.config/me/usr/browser/log/favorites.csv' % os.environ['USER']
-task_path = '/home/%s/.config/me/local/share/csv/task.csv' % os.environ['USER']
+user  = input("User: ")
+notes_inputs_path = '/home/%s/.config/me/usr/txt/log/notes_inputs.csv' % user
+favorites_path = '/home/%s/.config/me/usr/browser/log/favorites.csv' % user
+task_path = '/home/%s/.config/me/local/share/csv/task.csv' % user
 
 with open(notes_inputs_path, 'w', newline='') as file:
     writer = csv.writer(file)
