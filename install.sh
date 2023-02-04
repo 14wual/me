@@ -49,6 +49,7 @@ echo "Hello $user"
 echo "Creating root folder"
 dir_path="/home/$user/.config/me"
 sudo mkdir -p "$dir_path"
+chmod -R 777 "$dir_path"
 
 echo "Creating bin folders"
 sudo mkdir /home/$user/.config/me/bin
@@ -78,6 +79,8 @@ sudo cp me/ /home/$user/.config/me/pip/app/me -r
 
 echo "Installing databases, configuration and csv files"
 sudo python3 install.py
+
+chmod -R 777 "$dir_path"
 
 echo "Configuring terminal
 sudo echo "alias me='python3 /home/$user/.config/me/pip/app/me/me/__init__.py'" >> ~/.config/.zshrc 
