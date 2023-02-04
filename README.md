@@ -13,6 +13,34 @@ Me is an application that allows you to perform certain tasks from the terminal,
 888P     Y888  "Y88888P" d88P     888 88888888
 ```
 
+## Avilable Commands:
+
+```
+Browser Commands:
+    browser:
+    browser --add:
+    browser --delete:
+    browser --list: 
+    search: 
+     
+[passwd] | Password Commands:
+    passwd --add: Add New Key to Vault
+    passwd --copy: Search & Copy Key from Vault
+    passwd --matter: Import Keys from csv to Vault
+    passwd --modify: Search & Modify Key from Vault
+    
+[notes] Notes Commands:
+    notes --new: Create a new note
+    notes --read: View all notes, select one write/read
+    notes --delete: Delete a note
+    
+Other Commands:
+    clear/cls: clear terminal
+    info: View app information
+    mypc: View current hardware/software status
+    hello/hi: Initial greeting of the app
+    exit/bye: Exit the program
+```
 
 ## Install
 
@@ -75,3 +103,15 @@ password = /home/<your-user>/.config/me/local/share/database/password.db
 browser = /home/<your-user>/.config/me/usr/browser/log/favorites.csv
 notes = /home/<your-user>/.config/me/usr/txt/log/notes_inputs.csv
 ```
+
+## License
+Copyright © 2023 Carlos Padilla.
+
+This project is [MIT](https://github.com/14wual/me/blob/main/LICENSE) licensed.
+
+## 🚀 Know me
+Linkeding - https://www.linkedin.com/in/cpadilla10/ 
+
+Twitter - https://twitter.com/codewual 
+
+YouTube - https://www.youtube.com/channel/UC0B3mTwPPdKPEwLerauEtdg
