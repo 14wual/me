@@ -42,7 +42,9 @@ pip install urllib
 echo "Installing sqlite3..."
 pip install sqlite3
 
-user=$(whoami)
+echo "Enter your username"
+read user
+echo "Hello $user"
 
 echo "Creating root folder"
 dir_path="/home/$user/.config/me"
