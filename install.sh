@@ -77,12 +77,10 @@ echo "Installing application in pip directory"
 sudo cp me/ /home/$user/.config/me/pip/app/me -r
 
 echo "Installing databases, configuration and csv files"
-sudo python3 install/about.py
-sudo python3 install/csv.py
-sudo python3 install/database.py
+sudo python3 install.py
 
 echo "Configuring terminal
-sudo echo "alias me='python3 /home/$user/.config/me/pip/app/me/__init__.py'" >> ~/.config/.zshrc 
-sudo echo "alias me='python3 /home/$user/.config/me/pip/app/me/__init__.py'" >> ~/.config/.bashrc 
+sudo echo "alias me='python3 /home/$user/.config/me/pip/app/me/me/__init__.py'" >> ~/.config/.zshrc 
+sudo echo "alias me='python3 /home/$user/.config/me/pip/app/me/me/__init__.py'" >> ~/.config/.bashrc 
 
 notify-send "wual/ME Installed"
