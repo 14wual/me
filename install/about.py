@@ -11,8 +11,9 @@
 import configparser
 import os
 
+user  = input("User: ")
 config = configparser.ConfigParser()       
-path = '/home/%s/.config/me/bin/me/me.ini' % os.environ['USER']
+path = '/home/%s/.config/me/bin/me/me.ini' % user
 with open(path, 'w') as f:f.close()
 config.read(path)
 
