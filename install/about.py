@@ -13,7 +13,7 @@ import os
 
 config = configparser.ConfigParser()       
 path = '/home/%s/.config/me/bin/me/me.ini' % os.environ['USER']
-with open(path, 'w') as f:f.close
+with open(path, 'w') as f:f.close()
 config.read(path)
 
 config.add_section('software')
