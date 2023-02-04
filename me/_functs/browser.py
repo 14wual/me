@@ -9,10 +9,12 @@
 # Follow me >> https://twitter.com/codewual
 
 # --------------------Extern Imports--------------------
-import webbrowser
-import csv
-import os
-import configparser
+try:
+    import webbrowser
+    import csv
+    import os
+    import configparser
+except ImportError: raise ImportError("Failed to import modules. Make sure it is installed correctly and is in the PYTHONPATH.")
 
 # --------------------APP--------------------
 class Browser:
