@@ -10,7 +10,7 @@
 
 # --------------------Extern Imports--------------------
 try:
-    import configparser
+    import configparser 
     import cmd
     from datetime import datetime
     import argparse
@@ -24,6 +24,7 @@ except ImportError: raise ImportError("Failed to import modules. Make sure it is
 from _functs.password import Passwd
 from _functs.notes import Notes
 from _functs.browser import Browser
+from _functs.contacts import Modify, Add, Search
 
 # --------------------APP--------------------
 class MeAPP(cmd.Cmd):
@@ -85,7 +86,6 @@ class MeAPP(cmd.Cmd):
             print("ArgsError: the 'notes' command needs arguments | [--new] [--read] [--archive] [--delete]\nShowing notes")
             Notes.read()
             
-        
     def do_passwd(self, line):
         
         parser = argparse.ArgumentParser(description='Passwords Commands')
@@ -114,7 +114,27 @@ class MeAPP(cmd.Cmd):
         if password == self.config.get("me", "password"):return True
         else: return False
             
+    def do_contacts(self, line):
+        parser = argparse.ArgumentParser(description='Contacs Commands')
         
+        parser.add_argument('--modify', dest='modify', action='store_true', help='Add New Key to Vault')
+        parser.add_argument('--search', dest='search', action='store_true', help='Search & Copy Key from Vault')
+        parser.add_argument('--add', dest='add', action='store_true', help='Import Keys from csv to Vault')
+        parser.add_argument('--delete', dest='delete', type=str, help='Search & Modify Key from Vault ')
+        
+        args = parser.parse_args(line.split())
+        
+        if args.modify:
+            value = input("Value: ")
+            Modify.modify_contact(value)
+        elif args.search:
+            value = input("Value: ")
+            Search.search_contact(value)
+        elif args.delete:
+            value = input("Value: ")
+            Modify.delete_contact(value)
+        elif args.add:Add.contact_info()
+        else:print("ArgsError: the 'contacts' command needs arguments | [--add] [--delete] [--search] [--modify]")
         
     def do_hi(self, line):self.do_hello(line='')
     def do_clear(self, line):os.system("clear")
@@ -127,14 +147,25 @@ Welcome to Me!
 Version: V.{self.config.get("me", "version")}
 Now: {MeAPP.formatted_time}
 \n""")
-    
+    def do_info(self, line):print("""
+me: BV0.5
+Code By WUAL >> https://github.com/14wual
+Start: https://github.com/14wual/me
+Twitter: https://twitter.com/codewual
+                                  """)
     def do_help(self, line):print("""Browser Commands:
-    browser:
-    browser --add:
-    browser --delete:
-    browser --list: 
-    search: 
-     
+    browser: search and browse bookmarks.
+    browser --add: add a new bookmark.
+    browser --delete: delete a new bookmark.
+    browser --list: list your bookmarks.
+    search: do a google search.
+    
+[contacts] Contacts Commands:
+    contacts --modify: look for a contact.
+    contacts --search: modify an existing contact.
+    contacts --add: add a new contact.
+    contacts --delete: delete an existing contact.
+
 [passwd] | Password Commands:
     passwd --add: Add New Key to Vault
     passwd --copy: Search & Copy Key from Vault
