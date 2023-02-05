@@ -67,6 +67,11 @@ Run the file 'install-sh' >> `./install.sh`
 
 Log out and log in again (`kill -9 -1`)
 
+## Gallery
+
+![14wual/Me - BV0.63](https://user-images.githubusercontent.com/105047274/216813795-52684672-216b-430d-9b6a-b3456f44c981.png)
+
+
 ## Possible mistakes
 
 ### Command does not exist
