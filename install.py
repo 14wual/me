@@ -87,3 +87,24 @@ with open(favorites_path, 'w', newline='') as file:
 with open(task_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['now', 'for', 'title', 'desc'])
+    
+ddbb_file_path = '/home/%s/.config/me/local/share/database/contacts.db' % os.environ['USER']
+conn = sqlite3.connect(ddbb_file_path)
+cursor = conn.cursor()
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS contacts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    surname TEXT,
+    nickname TEXT,
+    phone TEXT,
+    mail TEXT,
+    company TEXT,
+    old_companies TEXT,
+    web TEXT,
+    tags TEXT,
+    other TEXT
+)
+''')
+conn.commit()
+conn.close()
