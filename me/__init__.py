@@ -38,7 +38,7 @@ class MeAPP(cmd.Cmd):
         MeAPP.formatted_time = now.strftime('%Y-%m-%d %H:%M:%S')
         
         self.config = configparser.ConfigParser()
-        self.config.read('/home/%s/.config/me/bin/me/me.ini' % os.environ['USER'])
+        self.config.read('/usr/local/etc/me/bin/me/me.ini')
 
         self.do_hello(line='')
         
@@ -143,15 +143,25 @@ class MeAPP(cmd.Cmd):
     def do_bye(self, line):return True
     def do_hello(self, line):  
         print(f"""\n
-Welcome to Me!
-Version: V.{self.config.get("me", "version")}
-Now: {MeAPP.formatted_time}
+
+                Welcome to Me! 
+▒█▀▄▀█ ▒█▀▀▀    User: {self.config.get("me", "user")}
+▒█▒█▒█ ▒█▀▀▀    Version: V.{self.config.get("me", "version")} 
+▒█░░▒█ ▒█▄▄▄    Now: {MeAPP.formatted_time}
+                (code by wual)
+
 \n""")
     def do_info(self, line):print("""
-me: BV0.5
+Welcome to ME!
+                                  
+Version: BV0.63
+File path: ~/.config/me
+
 Code By WUAL >> https://github.com/14wual
-Start: https://github.com/14wual/me
+Star: https://github.com/14wual/me
 Twitter: https://twitter.com/codewual
+
+Powered by 14wual/me!
                                   """)
     def do_help(self, line):print("""Browser Commands:
     browser: search and browse bookmarks.
