@@ -17,7 +17,7 @@ class Search:
 
     def search_contact(value):
         
-        ddbb_file_path = '/home/%s/.config/me/local/share/database/contacts.db' % os.environ['USER']
+        ddbb_file_path = '/usr/local/etc/me/local/share/database/contacts.db'
         conn = sqlite3.connect(ddbb_file_path)
         cursor = conn.cursor()
 
@@ -97,7 +97,7 @@ class Add:
             website=website, tags=tags, other=other)
     
     def add_contact(name, surname, nickname, phone, email, company, past_companies, website, tags, other):
-        ddbb_file_path = '/home/%s/.config/me/local/share/database/contacts.db' % os.environ['USER']
+        ddbb_file_path = '/usr/local/etc/me/local/share/database/contacts.db'
         conn = sqlite3.connect(ddbb_file_path)
         cursor = conn.cursor()
 
@@ -113,7 +113,7 @@ class Add:
 class Modify:
     
     def delete_contact(value):
-        ddbb_file_path = '/home/%s/.config/me/local/share/database/contacts.db' % os.environ['USER']
+        ddbb_file_path = '/usr/local/etc/me/local/share/database/contacts.db'
         conn = sqlite3.connect(ddbb_file_path)
         cursor = conn.cursor()
 
@@ -160,7 +160,7 @@ class Modify:
         else:print("No results found.")
     
     def modify_contact(value):
-        ddbb_file_path = '/home/%s/.config/me/local/share/database/contacts.db' % os.environ['USER']
+        ddbb_file_path = '/usr/local/etc/me/local/share/database/contacts.db'
         conn = sqlite3.connect(ddbb_file_path)
         cursor = conn.cursor()
 
