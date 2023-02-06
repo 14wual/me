@@ -13,6 +13,16 @@ Me is an application that allows you to perform certain tasks from the terminal,
 888P     Y888  "Y88888P" d88P     888 88888888
 ```
 
+1. [Avilable Commands](https://github.com/14wual/me#avilable-commands)
+2. [Install](https://github.com/14wual/me#install)
+3. [Gallery](https://github.com/14wual/me#install)
+4. [Possible Mistakes](https://github.com/14wual/me#possible-mistakes)
+   4.1 [Command does not exist](https://github.com/14wual/me#command-does-not-exist)
+   4.2 [NoSectionError](https://github.com/14wual/me#nosectionerror)
+5. About
+   5.1 [License](https://github.com/14wual/me#license)
+   5.2 [Know Me](https://github.com/14wual/me#-know-me)
+
 ## Avilable Commands:
 
 ```
