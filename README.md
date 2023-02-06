@@ -1,5 +1,7 @@
 # me
 
+Me is an application that allows you to perform certain basic tasks. Manage passwords, contacts, tasks, notes, search the web with a command, emulate python, among others!
+
 Me is an application that allows you to perform certain tasks from the terminal, review the [Avilable Commands](https://github.com/14wual/me#avilable-commands) to discover all its features!
 
 ```
