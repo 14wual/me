@@ -49,7 +49,7 @@ Browser Commands:
     contacts --add: add a new contact.
     contacts --delete: delete an existing contact.
 
-[passwd] | Password Commands:
+[passwd] Password Commands:
     passwd --add: Add New Key to Vault.
     passwd --copy: Search & Copy Key from Vault.
     passwd --matter: Import Keys from csv to Vault.
