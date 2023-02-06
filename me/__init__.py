@@ -24,6 +24,7 @@ except ImportError: raise ImportError("Failed to import modules. Make sure it is
 from _functs.password import Passwd
 from _functs.notes import Notes
 from _functs.browser import Browser
+from _functs.check import Check
 from _functs.contacts import Modify, Add, Search
 
 # --------------------APP--------------------
@@ -42,9 +43,19 @@ class MeAPP(cmd.Cmd):
 
         self.do_hello(line='')
         
+    def do_py(self, line):self.do_python(line='')
+    def do_python(self,line):
+        print("[exit()] to exit py terminal.")
+        while True:
+            try:cm = exec(input("<py> "))
+            except:pass
+            if cm == "exit()":
+                print("Exiting...")
+                break
+        
     def do_browser(self, line):
         
-        parser = argparse.ArgumentParser(description='Passwords Commands')
+        parser = argparse.ArgumentParser(description='BRowser Commands')
         
         parser.add_argument('--add', dest='add', action='store_true', help='Add New Favorite Site')
         parser.add_argument('--delete', dest='delete', action='store_true', help='Delete Favorite Site')
@@ -58,6 +69,27 @@ class MeAPP(cmd.Cmd):
             if self.check_access() == True:Browser.delete()
         else:
             Browser.search()
+            
+    def do_check(self, line):
+        
+        parser = argparse.ArgumentParser(description='Check Commands')
+        
+        parser.add_argument('--connect', dest='connect', action='store_true', help='Add New Favorite Site')
+        parser.add_argument('--file', dest='file', action='store_true', help='Delete Favorite Site')
+        parser.add_argument('--path', dest='path', action='store_true', help='Delete Favorite Site')
+        parser.add_argument('-w', type=str, help='Delete Favorite Site')
+
+        args = parser.parse_args(line.split())
+        
+        if not args.w:
+            dire = input("Write: ")
+        else: dire = args.w
+        
+        if args.connect:Check.connect(dire)
+        elif args.file:Check.files(dire)
+        elif args.path:Check.path(dire)
+        else:
+            print("ArgsError: the 'check' command needs arguments | [--connect] [--file] [--path]")
         
     def do_search(self, line):
                 
@@ -65,8 +97,7 @@ class MeAPP(cmd.Cmd):
         url = "https://www.google.com/search?q=" + search_term
         MeAPP.open_browser(url)
         
-    def open_browser(url):
-        subprocess.Popen(["xdg-open", url])
+    def open_browser(url):subprocess.Popen(["xdg-open", url])
         
     def do_notes(self, line):
         
@@ -177,15 +208,22 @@ Powered by 14wual/me!
     contacts --delete: delete an existing contact.
 
 [passwd] | Password Commands:
-    passwd --add: Add New Key to Vault
-    passwd --copy: Search & Copy Key from Vault
-    passwd --matter: Import Keys from csv to Vault
-    passwd --modify: Search & Modify Key from Vault
+    passwd --add: Add New Key to Vault.
+    passwd --copy: Search & Copy Key from Vault.
+    passwd --matter: Import Keys from csv to Vault.
+    passwd --modify: Search & Modify Key from Vault.
     
 [notes] Notes Commands:
-    notes --new: Create a new note
-    notes --read: View all notes, select one write/read
-    notes --delete: Delete a note
+    notes --new: Create a new note.
+    notes --read: View all notes, select one write/read.
+    notes --delete: Delete a note.
+
+[check] Check Commands:
+    check --connect: Check connectivity with a web or ip.
+    check --path: Check if a directory exists.
+    check --file: Ceck if a file exists.
+    second options/optional: -w: write the directory, url, ... (string)
+        check --command -w example
     
 Other Commands:
     clear/cls: clear terminal
