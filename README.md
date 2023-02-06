@@ -1,6 +1,14 @@
 # me
 
-Me is an application that allows you to perform certain tasks from the terminal, from having your own (simple) password manager, searching from the web, managing hyperlinks (that is, shortcuts), notes, tasks, ...
+Me is an application that allows you to perform certain tasks from the terminal, review the [Avilable Commands](https://github.com/14wual/me#avilable-commands) to discover all its features!
+
+```
+                Welcome to Me! 
+▒█▀▄▀█ ▒█▀▀▀    User: {self.config.get("me", "user")}
+▒█▒█▒█ ▒█▀▀▀    Version: V.{self.config.get("me", "version")} 
+▒█░░▒█ ▒█▄▄▄    Now: {MeAPP.formatted_time}
+                (code by wual)
+```
 
 ```
 888       888 888     888       d8888 888
@@ -32,6 +40,8 @@ Browser Commands:
     browser --delete: delete a new bookmark.
     browser --list: list your bookmarks.
     search: do a google search.
+
+[mail]: Send an email.
     
 [contacts] Contacts Commands:
     contacts --modify: look for a contact.
@@ -63,6 +73,8 @@ Browser Commands:
     check --file: Ceck if a file exists.
     second options/optional: -w: write the directory, url, ... (string)
         check --command -w example
+        
+[python] or [py]: Create a python terminal.
     
 Other Commands:
     clear/cls: clear terminal
