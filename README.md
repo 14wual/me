@@ -143,6 +143,7 @@ password = <your-password>
 
 [software]
 browser = default
+mail = <your-mail@gmail.com>
 
 [databases]
 password = /home/<your-user>/.config/me/local/share/database/password.db
