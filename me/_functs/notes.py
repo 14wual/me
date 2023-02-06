@@ -20,7 +20,7 @@ except ImportError: raise ImportError("Failed to import modules. Make sure it is
 class Notes:
     
     config = configparser.ConfigParser()
-    config.read('/home/%s/.config/me/bin/me/me.ini' % os.environ['USER'])
+    config.read('/usr/local/etc/me/bin/me/me.ini')
     
     def new():
         
@@ -35,7 +35,7 @@ class Notes:
         confirm = input("[Y/n] It's right?: ")
         if confirm == "":confirm="Y"
         
-        path = os.path.join("/home/%s/.config/me/usr/txt" % os.environ['USER'], title) 
+        path = os.path.join("/usr/local/etc/me/usr/txt" % os.environ['USER'], title) 
         
         row = [
             [f"{formatted_time}", f"{title}"]
@@ -50,7 +50,7 @@ class Notes:
             
     def read():
 
-        path = "/home/%s/.config/me/usr/txt" % os.environ['USER']
+        path = "/usr/local/etc/me/usr/txt"
 
         files = [file for file in os.listdir(path) if file.endswith(".txt")]
         
@@ -77,7 +77,7 @@ class Notes:
         
     def archive():
         
-        path = "/home/%s/.config/me/usr/txt/archive" % os.environ['USER']
+        path = "/usr/local/etc/me/usr/txt/archive"
 
         files = [file for file in os.listdir(path) if file.endswith(".txt")]
         
@@ -97,7 +97,7 @@ class Notes:
         
     def delete():
         
-        path = "/home/%s/.config/me/usr/txt/" % os.environ['USER']
+        path = "/usr/local/etc/me/usr/txt/"
 
         files = [file for file in os.listdir(path) if file.endswith(".txt")]
         
