@@ -16,30 +16,36 @@ Me is an application that allows you to perform certain tasks from the terminal,
 ## Avilable Commands:
 
 ```
-Browser Commands:
-    browser:
-    browser --add:
-    browser --delete:
-    browser --list: 
-    search: 
-     
-[passwd] | Password Commands:
-    passwd --add: Add New Key to Vault
-    passwd --copy: Search & Copy Key from Vault
-    passwd --matter: Import Keys from csv to Vault
-    passwd --modify: Search & Modify Key from Vault
-    
-[notes] Notes Commands:
-    notes --new: Create a new note
-    notes --read: View all notes, select one write/read
-    notes --delete: Delete a note
-    
-Other Commands:
-    clear/cls: clear terminal
-    info: View app information
-    mypc: View current hardware/software status
-    hello/hi: Initial greeting of the app
-    exit/bye: Exit the program
+Browser Commands: 
+     browser: search and browse bookmarks. 
+     browser --add: add a new bookmark. 
+     browser --delete: delete a new bookmark. 
+     browser --list: list your bookmarks. 
+     search: do a google search. 
+      
+[contacts] Contacts Commands: 
+     contacts --modify: look for a contact. 
+     contacts --search: modify an existing contact. 
+     contacts --add: add a new contact. 
+     contacts --delete: delete an existing contact. 
+  
+[passwd] | Password Commands: 
+     passwd --add: Add New Key to Vault 
+     passwd --copy: Search & Copy Key from Vault 
+     passwd --matter: Import Keys from csv to Vault 
+     passwd --modify: Search & Modify Key from Vault 
+      
+[notes] Notes Commands: 
+     notes --new: Create a new note 
+     notes --read: View all notes, select one write/read 
+     notes --delete: Delete a note 
+      
+Other Commands: 
+     clear/cls: clear terminal 
+     info: View app information 
+     mypc: View current hardware/software status 
+     hello/hi: Initial greeting of the app 
+     exit/bye: Exit the program""")
 ```
 
 ## Install
