@@ -20,7 +20,7 @@ except ImportError: raise ImportError("Failed to import modules. Make sure it is
 class Browser:
     
     config = configparser.ConfigParser()
-    config.read('/home/%s/.config/me/bin/me/me.ini' % os.environ['USER'])
+    config.read('/usr/local/etc/me/bin/me/me.ini')
 
     def add():
         
