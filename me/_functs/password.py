@@ -22,7 +22,7 @@ class Passwd:
 
     def matter():
         
-        conn = sqlite3.connect('/home/%s/.config/me/local/share/database/password.db' % os.environ['USER'])
+        conn = sqlite3.connect('/usr/local/etc/me/local/share/database/password.db')
         cursor = conn.cursor()
         
         path = input("\nIt is recommended that the path be found in input\\*.csv. And that this is a relative path within the main folder.\n\n[input\*.csv] Write the path:")
@@ -49,7 +49,7 @@ class Passwd:
         
     def modify():
         
-        conn = sqlite3.connect('/home/%s/.config/me/local/share/database/password.db' % os.environ['USER'])
+        conn = sqlite3.connect('/usr/local/etc/me/local/share/database/password.db')
         cursor = conn.cursor()
 
         search_value = input('Enter a search value: ')
@@ -82,7 +82,7 @@ class Passwd:
         
     def add():
         
-        conn = sqlite3.connect('/home/%s/.config/me/local/share/database/password.db' % os.environ['USER'])
+        conn = sqlite3.connect('/usr/local/etc/me/local/share/database/password.db' )
         cursor = conn.cursor()
 
         url = input('Enter the URL: ')
@@ -101,7 +101,7 @@ class Passwd:
     
     def copy():
         
-        conn = sqlite3.connect('/home/%s/.config/me/local/share/database/password.db' % os.environ['USER'])
+        conn = sqlite3.connect('/usr/local/etc/me/local/share/database/password.db')
         cursor = conn.cursor()
 
         search_value = input('Enter a search value: ')
