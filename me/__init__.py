@@ -18,6 +18,8 @@ try:
     import os
     import getpass
     import subprocess
+    import signal
+    import smtplib
 except ImportError: raise ImportError("Failed to import modules. Make sure it is installed correctly and is in the PYTHONPATH.")
 
 # --------------------Intern Imports--------------------
@@ -25,11 +27,16 @@ from _functs.password import Passwd
 from _functs.notes import Notes
 from _functs.browser import Browser
 from _functs.check import Check
+from _functs.pc import PC
 from _functs.contacts import Modify, Add, Search
 
 # --------------------APP--------------------
 class MeAPP(cmd.Cmd):
     
+    def handle_interrupt(signum, frame):
+        print("Type [exit] or [bye] to exit!\nMore help with command [help].")
+    
+    signal.signal(signal.SIGINT, handle_interrupt)
     prompt = '<me> '
     
     def __init__(self, completekey='tab', stdin=sys.stdin, stdout=sys.stdout):
@@ -43,15 +50,59 @@ class MeAPP(cmd.Cmd):
 
         self.do_hello(line='')
         
+    def do_mail(self, line):
+        
+        print("In order to use this service;\n"
+      "    your google account must have 'access to less secure apps' enabled.\n\n"
+      "Read more:\n"
+      "https://support.google.com/mail/answer/7126229?visit_id=638113077287409177-2088778801&p=BadCredentials&rd=2#cantsignin&zippy=%2I-can't-start-session%C3%B3n-in-my-mail-client")
+        
+        config = configparser.ConfigParser()
+        config.read('/usr/local/etc/me/bin/me/me.ini')
+        
+        ant = config.get("software", "mail")
+        
+        sender_email = input(f"[{ant}] Write your mail: ")
+        if not sender_email:sender_email = ant
+        config.set("databases", "mail", sender_email)
+        try:
+            with open("/usr/local/etc/me/bin/me/me.ini", "w") as config_file:config.write(config_file)
+        except:pass
+        
+        print("The password will not be saved.")
+        password = input("Write your mail-password: ")
+        receiver_email = input("Write your recipient email: ")
+        subject = input("Write a subjet: ")
+        message = input("Write the mail: ")
+        
+        showpasswd = len(password)*"*"
+        print(f"""
+Mail from: {sender_email}
+Your Mail Password: {showpasswd}
+Mail to: {receiver_email}
+
+Subjet: {subject}
+Message: {message}
+              """)
+        
+        confirm = input("[N/y]It's right?: ")
+        if confirm == "":confirm="N"
+        
+        if confirm == "Y" or confirm == "y":
+            with smtplib.SMTP("smtp.gmail.com", 587) as server:
+                server.ehlo()
+                server.starttls()
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, message)
+        
     def do_py(self, line):self.do_python(line='')
     def do_python(self,line):
         print("[exit()] to exit py terminal.")
         while True:
             try:cm = exec(input("<py> "))
             except:pass
-            if cm == "exit()":
-                print("Exiting...")
-                break
+            if cm == "exit()":break
+            if cm == "":break
         
     def do_browser(self, line):
         
@@ -74,10 +125,10 @@ class MeAPP(cmd.Cmd):
         
         parser = argparse.ArgumentParser(description='Check Commands')
         
-        parser.add_argument('--connect', dest='connect', action='store_true', help='Add New Favorite Site')
-        parser.add_argument('--file', dest='file', action='store_true', help='Delete Favorite Site')
-        parser.add_argument('--path', dest='path', action='store_true', help='Delete Favorite Site')
-        parser.add_argument('-w', type=str, help='Delete Favorite Site')
+        parser.add_argument('--connect', dest='connect', action='store_true', help='ACheck connectivity with a web or ip.')
+        parser.add_argument('--file', dest='file', action='store_true', help='Check if a directory exists.')
+        parser.add_argument('--path', dest='path', action='store_true', help=' Ceck if a file exists.')
+        parser.add_argument('-w', type=str, help=' write the directory, url, ... (string)')
 
         args = parser.parse_args(line.split())
         
@@ -144,6 +195,26 @@ class MeAPP(cmd.Cmd):
         
         if password == self.config.get("me", "password"):return True
         else: return False
+        
+    def do_pc(self, line):
+        
+        parser = argparse.ArgumentParser(description='PC Commands')
+        parser.add_argument('--all', dest='all', action='store_true', help='Print all logs')
+        parser.add_argument('--ram', dest='ram', action='store_true', help='Current status of: ram')
+        parser.add_argument('--cpu', dest='cpu', action='store_true', help='Current status of: cpu')
+        parser.add_argument('--disks', dest='disks', type=str, help='Current status of: disks')
+        parser.add_argument('--processor', dest='processor', type=str, help='Current status of: processor')
+        
+        args = parser.parse_args(line.split())
+        
+        if args.all:PC.memory();PC.cpu();PC.disk();PC.processes()
+        elif args.ram:PC.memory()
+        elif args.cpu:PC.cpu()
+        elif args.disks:PC.disk()
+        elif args.processor:PC.processes()
+        else:
+            print("ArgsError: the 'pc' command needs arguments | [--all] [--ram] [--cpu] [--disks] [--processes]")
+            PC.memory();PC.cpu();PC.disk();PC.processes()
             
     def do_contacts(self, line):
         parser = argparse.ArgumentParser(description='Contacs Commands')
@@ -166,6 +237,10 @@ class MeAPP(cmd.Cmd):
             Modify.delete_contact(value)
         elif args.add:Add.contact_info()
         else:print("ArgsError: the 'contacts' command needs arguments | [--add] [--delete] [--search] [--modify]")
+        
+    def default(self, line):
+        try:super().default(line)
+        except Exception as e:self.do_help()
         
     def do_hi(self, line):self.do_hello(line='')
     def do_clear(self, line):os.system("clear")
@@ -200,6 +275,8 @@ Powered by 14wual/me!
     browser --delete: delete a new bookmark.
     browser --list: list your bookmarks.
     search: do a google search.
+
+[mail]: Send an email.
     
 [contacts] Contacts Commands:
     contacts --modify: look for a contact.
@@ -217,6 +294,13 @@ Powered by 14wual/me!
     notes --new: Create a new note.
     notes --read: View all notes, select one write/read.
     notes --delete: Delete a note.
+    
+[pc] PC Commands:
+    pc --all: Print all logs
+    pc --ram: Current status of: ram
+    pc --cpu: Current status of: cpu
+    pc --disks: Current status of: disks
+    pc --processor: Current status of: processor
 
 [check] Check Commands:
     check --connect: Check connectivity with a web or ip.
@@ -224,11 +308,12 @@ Powered by 14wual/me!
     check --file: Ceck if a file exists.
     second options/optional: -w: write the directory, url, ... (string)
         check --command -w example
+        
+[python] or [py]: Create a python terminal.
     
 Other Commands:
     clear/cls: clear terminal
     info: View app information
-    mypc: View current hardware/software status
     hello/hi: Initial greeting of the app
     exit/bye: Exit the program""")
 
