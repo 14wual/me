@@ -15,7 +15,7 @@ import csv
 
 user  = input("User: ")
 config = configparser.ConfigParser()       
-path = '/home/%s/.config/me/bin/me/me.ini' % user
+path = '/usr/local/etc/me/bin/me/me.ini'
 with open(path, 'w') as f:f.close()
 config.read(path)
 
@@ -28,16 +28,16 @@ config.set('me', 'user', user)
 password = input("Write a Password: ")
 config.set('me', 'password', password)
 
-path = '/home/%s/.config/me/usr/txt/log/notes_inputs.csv' % os.environ['USER']
+path = '/usr/local/etc/me/usr/txt/log/notes_inputs.csv'
 config.set('me', 'notes', path)
-path = '/home/%s/.config/me/usr/browser/log/favorites.csv' % os.environ['USER']
+path = '/usr/local/etc/me/usr/browser/log/favorites.csv'
 config.set('me', 'browser', path)
-path = '/home/%s/.config/me/local/share/database/password.db' % os.environ['USER']
+path = '/usr/local/etc/me/local/share/database/password.db'
 config.set('me', 'password', path)
 
 config.set('software', 'browser', 'default')
 
-path = '/home/%s/.config/me/local/share/database/password.db' % user
+path = '/usr/local/etc/me/local/share/database/password.db' % user
 
 with open(path, 'w') as file:file.close()
 
@@ -72,9 +72,9 @@ try:
     print("[ ✓ ] Connection closed correctly")
 except:print("[ ✕ ] Could not close the connection")
 
-notes_inputs_path = '/home/%s/.config/me/usr/txt/log/notes_inputs.csv' % user
-favorites_path = '/home/%s/.config/me/usr/browser/log/favorites.csv' % user
-task_path = '/home/%s/.config/me/local/share/csv/task.csv' % user
+notes_inputs_path = '/usr/local/etc/me/usr/txt/log/notes_inputs.csv'
+favorites_path = '/usr/local/etc/me/usr/browser/log/favorites.csv'
+task_path = '/usr/local/etc/me/local/share/csv/task.csv'
 
 with open(notes_inputs_path, 'w', newline='') as file:
     writer = csv.writer(file)
@@ -88,7 +88,7 @@ with open(task_path, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['now', 'for', 'title', 'desc'])
     
-ddbb_file_path = '/home/%s/.config/me/local/share/database/contacts.db' % os.environ['USER']
+ddbb_file_path = '/usr/local/etc/me/local/share/database/contacts.db'
 conn = sqlite3.connect(ddbb_file_path)
 cursor = conn.cursor()
 cursor.execute('''
