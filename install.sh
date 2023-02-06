@@ -47,6 +47,8 @@ echo "Installing psutil..."
 pip install psutil
 echo "Installing socket..."
 pip install socket
+echo "Installing smtplib..."
+pip install smtplib
 
 echo "Creating root folder"
 dir_path="/usr/local/etc/me"
