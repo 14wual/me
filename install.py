@@ -37,6 +37,8 @@ config.set('me', 'password', path)
 
 config.set('software', 'browser', 'default')
 
+with open("/usr/local/etc/me/bin/me/me.ini", "w") as config_file:config.write(config_file)
+
 path = '/usr/local/etc/me/local/share/database/password.db' % user
 
 with open(path, 'w') as file:file.close()
