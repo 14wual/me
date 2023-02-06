@@ -42,40 +42,36 @@ pip install urllib
 echo "Installing sqlite3..."
 pip install sqlite3
 
-echo "Enter your username"
-read user
-echo "Hello $user"
-
 echo "Creating root folder"
-dir_path="/home/$user/.config/me"
+dir_path="/usr/local/etc/me"
 sudo mkdir -p "$dir_path"
 chmod -R 777 "$dir_path"
 
 echo "Creating bin folders"
-sudo mkdir /home/$user/.config/me/bin
-sudo mkdir /home/$user/.config/me/bin/me
+sudo mkdir /usr/local/etc/me/bin
+sudo mkdir /usr/local/etc/me/bin/me
 
 echo "Creating local folders"
-sudo mkdir /home/$user/.config/me/local
-sudo mkdir /home/$user/.config/me/local/share
-sudo mkdir /home/$user/.config/me/local/share/csv
-sudo mkdir /home/$user/.config/me/local/share/database
+sudo mkdir /usr/local/etc/me/local
+sudo mkdir /usr/local/etc/me/local/share
+sudo mkdir /usr/local/etc/me/local/share/csv
+sudo mkdir /usr/local/etc/me/local/share/database
 
 echo "Creating usr folders"
-sudo mkdir /home/$user/.config/me/usr
-sudo mkdir /home/$user/.config/me/usr/browser
-sudo mkdir /home/$user/.config/me/usr/browser/log
-sudo mkdir /home/$user/.config/me/usr/txt
-sudo mkdir /home/$user/.config/me/usr/txt/archive
-sudo mkdir /home/$user/.config/me/usr/txt/log
+sudo mkdir /usr/local/etc/me/usr
+sudo mkdir /usr/local/etc/me/usr/browser
+sudo mkdir /usr/local/etc/me/usr/browser/log
+sudo mkdir /usr/local/etc/me/usr/txt
+sudo mkdir /usr/local/etc/me/usr/txt/archive
+sudo mkdir /usr/local/etc/me/usr/txt/log
 
 echo "Creating pip folders"
-sudo mkdir /home/$user/.config/me/pip
-sudo mkdir /home/$user/.config/me/pip/app
-sudo mkdir /home/$user/.config/me/pip/app/me
+sudo mkdir /usr/local/etc/me/pip
+sudo mkdir /usr/local/etc/me/pip/app
+sudo mkdir /usr/local/etc/me/pip/app/me
 
 echo "Installing application in pip directory"
-sudo cp me/ /home/$user/.config/me/pip/app/me -r
+sudo cp me/ /usr/local/etc/me/pip/app/me -r
 
 echo "Installing databases, configuration and csv files"
 sudo python3 install.py
@@ -83,7 +79,7 @@ sudo python3 install.py
 chmod -R 777 "$dir_path"
 
 echo "Configuring terminal
-sudo echo "alias me='python3 /home/$user/.config/me/pip/app/me/me/__init__.py'" >> ~/.config/.zshrc 
-sudo echo "alias me='python3 /home/$user/.config/me/pip/app/me/me/__init__.py'" >> ~/.config/.bashrc 
+sudo echo "alias me='python3 /usr/local/etc/me/pip/app/me/me/__init__.py'" >> ~/.config/.zshrc 
+sudo echo "alias me='python3 /usr/local/etc/me/pip/app/me/me/__init__.py'" >> ~/.config/.bashrc 
 
 notify-send "wual/ME Installed"
