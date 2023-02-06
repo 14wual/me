@@ -41,6 +41,12 @@ echo "Installing urllib..."
 pip install urllib
 echo "Installing sqlite3..."
 pip install sqlite3
+echo "Installing signal..."
+pip install signal
+echo "Installing psutil..."
+pip install psutil
+echo "Installing socket..."
+pip install socket
 
 echo "Creating root folder"
 dir_path="/usr/local/etc/me"
