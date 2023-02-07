@@ -38,49 +38,66 @@ Me is an application that allows you to perform certain tasks from the terminal,
 ```
 Browser Commands:
     browser: search and browse bookmarks.
-    browser --add: add a new bookmark.
-    browser --delete: delete a new bookmark.
-    browser --list: list your bookmarks.
+    browser --add/-a: add a new bookmark.
+    browser --delete/-d: delete a new bookmark.
+    browser --list/-l: list your bookmarks.
     search: do a google search.
+    
+    *Shortcuts: [search], [browser], [b], [s], [brow]
 
 [mail]: Send an email.
     
 [contacts] Contacts Commands:
-    contacts --modify: look for a contact.
-    contacts --search: modify an existing contact.
-    contacts --add: add a new contact.
-    contacts --delete: delete an existing contact.
+    contacts --modify/-m: look for a contact.
+    contacts --search/-s: modify an existing contact.
+    contacts --add/-a: add a new contact.
+    contacts --delete/-d: delete an existing contact.
+    
+    *Shortcuts: [contacts], [cont], [c]
 
 [passwd] Password Commands:
-    passwd --add: Add New Key to Vault.
-    passwd --copy: Search & Copy Key from Vault.
+    passwd --add/-a: Add New Key to Vault.
+    passwd --copy/-c: Search & Copy Key from Vault.
     passwd --matter: Import Keys from csv to Vault.
-    passwd --modify: Search & Modify Key from Vault.
+    passwd --modify/-m: Search & Modify Key from Vault.
+    
+    *Shortcuts: [password], [passwd], [p]
+
+[task] Tasks Commands:
+    task --add/-a: Add New Task.
+    task --done/-d: Mark a task as done.
+    task --list/-l: List all pending tasks
+    task --today/-t: Read today's tasks.
+
+    *Shortcuts: [task], [t]
     
 [notes] Notes Commands:
-    notes --new: Create a new note.
-    notes --read: View all notes, select one write/read.
-    notes --delete: Delete a note.
+    notes --new/-n: Create a new note.
+    notes --read/-r: View all notes, select one write/read.
+    notes --delete/-d: Delete a note.
+    
+    *Shortcuts: [notes], [n]
     
 [pc] PC Commands:
-    pc --all: Print all logs
-    pc --ram: Current status of: ram
-    pc --cpu: Current status of: cpu
-    pc --disks: Current status of: disks
-    pc --processor: Current status of: processor
+    pc --all/-a: Print all logs
+    pc --ram/-r: Current status of: ram
+    pc --cpu/-c: Current status of: cpu
+    pc --disks/-d: Current status of: disks
+    pc --processor/-p: Current status of: processor
 
 [check] Check Commands:
-    check --connect: Check connectivity with a web or ip.
-    check --path: Check if a directory exists.
-    check --file: Ceck if a file exists.
+    check --connect/-c: Check connectivity with a web or ip.
+    check --path/-p: Check if a directory exists.
+    check --file/-f: Ceck if a file exists.
     second options/optional: -w: write the directory, url, ... (string)
         check --command -w example
         
 [python] or [py]: Create a python terminal.
     
 Other Commands:
+    [help] or [h]: display this panel
     clear/cls: clear terminal
-    info: View app information
+    info/i: View app information
     hello/hi: Initial greeting of the app
     exit/bye: Exit the program
 ```
@@ -127,7 +144,7 @@ nano .zshrc
 
 ```bash
 # Go to the last row and write the following
-alias me='python3 /home/<your-user>/.config/me/pip/app/me/me/__init__.py'
+alias me='sudo python3 /home/<your-user>/.config/me/pip/app/me/me/__init__.py'
 ```
 
 ### NoSectionError
@@ -152,6 +169,10 @@ password = /home/<your-user>/.config/me/local/share/database/password.db
 browser = /home/<your-user>/.config/me/usr/browser/log/favorites.csv
 notes = /home/<your-user>/.config/me/usr/txt/log/notes_inputs.csv
 ```
+
+### Why does it ask me for sudo?
+
+Due to the path where the program is located (it is in a common path in all operating systems and is there to create the fewest possible incompatibilities) it is necessary to ask for root. Since many of the functionalities write files inside the subpaths. Path `/usr/local/etc/me/`
 
 ## License
 Copyright © 2023 Carlos Padilla.
