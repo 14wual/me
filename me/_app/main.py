@@ -16,6 +16,7 @@ try:
     import sys
     import signal
     import getpass
+    import os
 except ImportError: raise ImportError("Failed to import modules. Make sure it is installed correctly and is in the PYTHONPATH.")
 
 # --------------------Intern Imports--------------------
@@ -75,10 +76,10 @@ class MeAPP(cmd.Cmd):
     def do_pc(self, line):self.pc.do_pc(line)
     def to_task(self, line):self.task.do_tasks(line)
     def to_t(self, line):self.task.do_tasks(line)
-    def do_clear(self, line):self.other.do_clear(line)
-    def do_cls(self, line):self.other.do_clear(line)
-    def do_exit(self, line):self.other.do_exit(line)
-    def do_bye(self, line):self.other.do_exit(line)
+    def do_clear(self, line):os.system("clear")
+    def do_cls(self, line):os.system("clear")
+    def do_exit(self, line):return True
+    def do_bye(self, line):return True
     def do_hi(self, line):self.other.do_hello(line)
     def do_hello(self, line):self.other.do_hello(line)
     def do_info(self, line):self.other.do_info(line)
