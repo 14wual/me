@@ -26,6 +26,7 @@ from _functs.browser import Browser
 from _functs.check import Check
 from _functs.pc import PC
 from _functs.github import Display
+from _functs.task import Tasks
 from _functs.contacts import Modify, Add, Search
 
 # --------------------APP--------------------
@@ -178,10 +179,13 @@ class DoContacts:
         parser.add_argument('-a', dest='add', action='store_true', help='Import Keys from csv to Vault')
         parser.add_argument('--delete', dest='delete', type=str, help='Search & Modify Key from Vault ')
         parser.add_argument('-d', dest='delete', type=str, help='Search & Modify Key from Vault ')
-        
+        parser.add_argument('-w', type=str, help=' write the directory, url, ... (string)')
+
         args = parser.parse_args(line.split())
         
-        value = input("Value: ")
+        if not args.w:
+            value = input("Write: ")
+        else: value = args.w
         
         if args.modify:Modify.modify_contact(value)
         elif args.search:Search.search_contact(value)
@@ -279,7 +283,28 @@ class DoTask:
     def __init__(self, meapp):
         self.meapp = MeAPP
     
-    def do_tasks(self, line):pass
+    def do_tasks(self, line):
+        
+        parser = argparse.ArgumentParser(description='Passwords Commands')
+        
+        parser.add_argument('--add', dest='add', action='store_true', help='Add New Key to Vault')
+        parser.add_argument('-a', dest='add', action='store_true', help='Add New Key to Vault')
+        parser.add_argument('--list', dest='list', action='store_true', help='Search & Copy Key from Vault')
+        parser.add_argument('-l', dest='list', action='store_true', help='Search & Copy Key from Vault')
+        parser.add_argument('--done', dest='done', action='store_true', help='Import Keys from csv to Vault')
+        parser.add_argument('--d', dest='done', type=str, help='Search & Modify Key from Vault ')
+        parser.add_argument('--today', dest='today', action='store_true', help='Import Keys from csv to Vault')
+        parser.add_argument('--t', dest='today', type=str, help='Search & Modify Key from Vault ')
+        
+        args = parser.parse_args(line.split())
+        
+        if args.today:Tasks.today()
+        elif args.list:Tasks._list()
+        elif args.done:Tasks.done()
+        elif args.add:Tasks.add()
+        else:
+            Tasks._list()
+            print("ArgsError: the 'passwd' command needs arguments | [--add] [--copy] [--matter] [--modify]")
     
 class DoOther:
     
@@ -313,6 +338,14 @@ class DoOther:
     passwd --modify/-m: Search & Modify Key from Vault.
     
     *Shortcuts: [password], [passwd], [p]
+
+[task] Tasks Commands:
+    task --add/-a: Add New Task.
+    task --done/-d: Mark a task as done.
+    task --list/-l: List all pending tasks
+    task --today/-t: Read today's tasks.
+
+    *Shortcuts: [task], [t]
     
 [notes] Notes Commands:
     notes --new/-n: Create a new note.
