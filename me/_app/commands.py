@@ -285,9 +285,6 @@ class DoOther:
     def __init__(self, meapp):
         self.meapp = MeAPP
     
-    def do_clear(self, line):os.system("clear")
-    def do_exit(self, line):return True
-    
     def do_help(self, line):
         print("""Browser Commands:
     browser: search and browse bookmarks.
