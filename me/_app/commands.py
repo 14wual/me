@@ -25,6 +25,7 @@ from _functs.notes import Notes
 from _functs.browser import Browser
 from _functs.check import Check
 from _functs.pc import PC
+from _functs.github import Display
 from _functs.contacts import Modify, Add, Search
 
 # --------------------APP--------------------
@@ -356,16 +357,4 @@ Other Commands:
 
 \n""")
         
-    def do_info(self, line):
-        print("""
-Welcome to ME!
-                                  
-Version: BV0.63
-File path: /usr/local/etc/me/
-
-Code By WUAL >> https://github.com/14wual
-Star: https://github.com/14wual/me
-Twitter: https://twitter.com/codewual
-
-Powered by 14wual/me!
-                                  """)
+    def do_info(self, line):Display()
