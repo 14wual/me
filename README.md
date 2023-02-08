@@ -22,16 +22,25 @@ Me is an application that allows you to perform certain tasks from the terminal,
 8888P   Y8888 Y88b. .d88P d8888888888 888     
 888P     Y888  "Y88888P" d88P     888 88888888
 ```
-
-1. [Avilable Commands](https://github.com/14wual/me#avilable-commands)
-2. [Install](https://github.com/14wual/me#install)
-3. [Gallery](https://github.com/14wual/me#install)
-4. [Possible Mistakes](https://github.com/14wual/me#possible-mistakes)
+1. [Usage](https://github.com/14wual/me#usage)
+2. [Avilable Commands](https://github.com/14wual/me#avilable-commands)
+3. [Install](https://github.com/14wual/me#install)
+4. [Gallery](https://github.com/14wual/me#install)
+5. [Possible Mistakes](https://github.com/14wual/me#possible-mistakes)
    4.1 [Command does not exist](https://github.com/14wual/me#command-does-not-exist)
    4.2 [NoSectionError](https://github.com/14wual/me#nosectionerror)
-5. About
+6. About
    5.1 [License](https://github.com/14wual/me#license)
    5.2 [Know Me](https://github.com/14wual/me#-know-me)
+
+## Usage
+
+**There are two ways to use /me**
+
+1. From your own terminal: **`me avilable-command argument`** | Example **`me password --modify`**
+2. From the terminal /me:  **`avilable-command argument opcional-argument`** | Example: **`contacts --search Wual`**
+
+Type `help` in the terminal me or `me help` in your own terminal to see all available commands.
 
 ## Avilable Commands:
 
@@ -144,7 +153,7 @@ nano .zshrc
 
 ```bash
 # Go to the last row and write the following
-alias me='sudo python3 /home/<your-user>/.config/me/pip/app/me/me/__init__.py'
+alias me='sudo python3 /usr/local/etc/me/pip/app/me/me/__init__.py'
 ```
 
 ### NoSectionError
@@ -165,9 +174,9 @@ browser = default
 mail = <your-mail@gmail.com>
 
 [databases]
-password = /home/<your-user>/.config/me/local/share/database/password.db
-browser = /home/<your-user>/.config/me/usr/browser/log/favorites.csv
-notes = /home/<your-user>/.config/me/usr/txt/log/notes_inputs.csv
+password = /usr/local/etc/me/local/share/database/password.db
+browser = /usr/local/etc/me/usr/browser/log/favorites.csv
+notes = /usr/local/etc/me/usr/txt/log/notes_inputs.csv
 ```
 
 ### Why does it ask me for sudo?
