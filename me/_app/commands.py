@@ -292,9 +292,9 @@ class DoTask:
         parser.add_argument('--list', dest='list', action='store_true', help='Search & Copy Key from Vault')
         parser.add_argument('-l', dest='list', action='store_true', help='Search & Copy Key from Vault')
         parser.add_argument('--done', dest='done', action='store_true', help='Import Keys from csv to Vault')
-        parser.add_argument('--d', dest='done', type=str, help='Search & Modify Key from Vault ')
+        parser.add_argument('-d', dest='done', type=str, help='Search & Modify Key from Vault ')
         parser.add_argument('--today', dest='today', action='store_true', help='Import Keys from csv to Vault')
-        parser.add_argument('--t', dest='today', type=str, help='Search & Modify Key from Vault ')
+        parser.add_argument('-t', dest='today', type=str, help='Search & Modify Key from Vault ')
         
         args = parser.parse_args(line.split())
         
@@ -302,9 +302,7 @@ class DoTask:
         elif args.list:Tasks._list()
         elif args.done:Tasks.done()
         elif args.add:Tasks.add()
-        else:
-            Tasks._list()
-            print("ArgsError: the 'passwd' command needs arguments | [--add] [--copy] [--matter] [--modify]")
+        else:Tasks._list()
     
 class DoOther:
     
