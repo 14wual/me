@@ -103,7 +103,7 @@ class DoBrowser:
     def do_search(self, line):
         
         parser = argparse.ArgumentParser(description='Search Commands')
-        parser.add_argument('-v', type=str, help=' write the directory, url, ... (string)')
+        parser.add_argument('-w', type=str, help=' write the directory, url, ... (string)')
         args = parser.parse_args(line.split())
         
         if not args.w:search_term = input("Write: ")
@@ -111,6 +111,10 @@ class DoBrowser:
                 
         url = "https://www.google.com/search?q=" + search_term
         DoBrowser.open_browser(url)
+    
+    def complete_search(self, text, line, begidx, endidx):
+        possible_values = ['-w']
+        return [i for i in possible_values if i.startswith(text)]
     
     def do_browser(self, line):
             
@@ -130,6 +134,10 @@ class DoBrowser:
         elif args.delete:
             if MeAPP.check_access() == True:Browser.delete()
         else:Browser.search()
+        
+    def complete_browser(self, text, line, begidx, endidx):
+        possible_values = ['--add','-a''--delete','-d','--list','-l']
+        return [i for i in possible_values if i.startswith(text)]
             
     def open_browser(url):subprocess.Popen(["xdg-open", url])
         
@@ -137,6 +145,10 @@ class DoCheck:
     
     def __init__(self, meapp):
         self.meapp = MeAPP
+        
+    def complete_check(self, text, line, begidx, endidx):
+        possible_values = ['--connect', '-c', '--file', '-f', '--path', '-p', '-w']
+        return [i for i in possible_values if i.startswith(text)]
     
     def do_check(self, line):
         
@@ -161,7 +173,7 @@ class DoCheck:
         elif args.path:Check.path(dire)
         else:
             print("ArgsError: the 'check' command needs arguments | [--connect] [--file] [--path]")
-
+            
 class DoContacts:
     
     def __init__(self, meapp):
@@ -193,10 +205,18 @@ class DoContacts:
         elif args.add:Add.contact_info()
         else:print("ArgsError: the 'contacts' command needs arguments | [--add] [--delete] [--search] [--modify]")   
 
+    def complete_contacts(self, text, line, begidx, endidx):
+        possible_values = ['--modify', '-m', '--search', '-s', '--add', '-a', '--delete', '-d', '-w']
+        return [i for i in possible_values if i.startswith(text)]
+
 class DoNotes:
     
     def __init__(self, meapp):
         self.meapp = MeAPP
+    
+    def complete_notes(self, text, line, begidx, endidx):
+        possible_values = ['--new', '-n', '--read', '-r', '--delete', '-d']
+        return [i for i in possible_values if i.startswith(text)]
     
     def do_notes(self, line):
         
@@ -223,6 +243,10 @@ class DoPc:
     
     def __init__(self, meapp):
         self.meapp = MeAPP
+        
+    def complete_pc(self, text, line, begidx, endidx):
+        possible_values = ['--all', '-a', '--ram', '-r', '--cpu', '-c', '--disks', '-d', '--processor', '-p']
+        return [i for i in possible_values if i.startswith(text)]
     
     def do_pc(self, line):
         
@@ -253,7 +277,11 @@ class DoPassword:
     
     def __init__(self, meapp):
         self.meapp = MeAPP
-    
+        
+    def complete_passwd(self, text, line, begidx, endidx):
+        possible_values = ['--add', '-a', '--copy', '-c', '--matter', '--delete', '--d']
+        return [i for i in possible_values if i.startswith(text)]
+        
     def do_passwd(self, line):
         
         parser = argparse.ArgumentParser(description='Passwords Commands')
@@ -282,6 +310,10 @@ class DoTask:
     
     def __init__(self, meapp):
         self.meapp = MeAPP
+        
+    def complete_tasks(self, text, line, begidx, endidx):
+        possible_values = ['--add', '-a', '--list', '-l', '--done', '-d', '--today', '-t']
+        return [i for i in possible_values if i.startswith(text)]
     
     def do_tasks(self, line):
         
