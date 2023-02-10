@@ -1,3 +1,5 @@
+Do not try to install the repository with dpkg or using the .deb file. This is still under development and is in an unstable version
+
 # me
 
 Me is an application that allows you to perform certain basic tasks. Manage passwords, contacts, tasks, notes, search the web with a command, emulate python, among others!
