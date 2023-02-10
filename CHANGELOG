@@ -1,0 +1,147 @@
+# /me
+
+## CHANGELOG
+
+[Feb 10, 2023]
+
+https://github.com/14wual/me/tree/43a6d7e80cc6cb1efd7eaadb2fde3a99d81a2d3f
+
+Delete me/deb_dist directory
+Delete me/dist directory
+Delete me/me.egg-info directory
+Delete me/me/DEBIAN directory
+Delete me-2.85.tar.gz
+Delete me.deb
+Rename setup.py to me/setup.py
+Rename me/setup.py to setup.py
+Update README.md
+Update README.md
+Add files via upload
+Add files via upload
+Create control
+Create prem
+Create README.md
+Create setup.py
+Rename _install/install.sh to me/_install/install.sh
+Rename install.sh to _install/install.sh
+Rename install.py to me/_install/install.py
+Update main.py
+Update commands.py
+Update main.py
+Update argvs.py
+Update README.md
+
+[Feb 9, 2023]
+
+https://github.com/14wual/me/tree/394077e3d032b03b643fdecf5596e2d96850ca28
+
+Update __init__.py
+
+[Feb 8, 2023]
+
+https://github.com/14wual/me/tree/b146810381705bda301902a838fca4bbcdbe34b5
+
+Update README.md
+Update __init__.py
+Create argvs.py
+Update commands.py
+Update task.py
+
+[Feb 7, 2023]
+
+https://github.com/14wual/me/tree/24f9c3719906a3fcfea9df97eb73b79d27eccf37
+
+Create task.py
+Update commands.py
+Update README.md
+Update github.py
+Update commands.py
+Create github.py
+Update __init__.py
+Update commands.py
+Update main.py
+Create commands.py
+Create main.py
+
+[Feb 6, 2023]
+
+https://github.com/14wual/me/tree/e393de30f5e3a9ab476151ffae86cc6e8e30c813
+
+Update README.md
+Update README.md
+Update README.md
+Update README.md
+Update install.sh
+Update __init__.py
+Update install.py
+Update install.sh
+Create pc.py
+Update README.md
+Update __init__.py
+Create check.py
+Update README.md
+Update install.py
+Update browser.py
+Update contacts.py
+Update contacts.py
+Update contacts.py
+Update notes.py
+Update password.py
+Update __init__.py
+Update README.md
+
+[Feb 5, 2023]
+
+https://github.com/14wual/me/tree/51c409186205a3e13127c41c2a96a1a4609a4112
+
+Update README.md
+Update __init__.py
+Update install.py
+Create contacts.py
+
+[Feb 4, 2023]
+
+https://github.com/14wual/me/tree/3843b6a5840e5349ca5daf4eee60b1fb3c72d3d8
+
+pdate README.md
+Create LICENSE
+Update README.md
+Update README.md
+Update README.md
+Update README.md
+Update install.sh
+Create install.py
+Delete install directory
+Update about.py
+Update csv.py
+Update database.py
+Update install.sh
+Update install.sh
+Update install.sh
+Update database.py
+Update about.py
+Update install.sh
+Update install.sh
+Delete pip.sh
+Delete install_pip.sh
+Update install_pip.sh
+Update install.sh
+Create install_pip.sh
+Update pip.sh
+Create __init__.py
+Update browser.py
+Update install.sh
+Create pip.sh
+Create csv.py
+Update browser.py
+Create browser.py
+Update README.md
+Update install.sh
+Create about.py
+Create database.py
+update notes.py
+Create password.py
+Create notes.py
+Create install.sh
+Update README.md
+Initial commit -
