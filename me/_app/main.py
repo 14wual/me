@@ -55,9 +55,8 @@ class MeAPP(cmd.Cmd):
         self.other.do_hello(line='')
         CheckArgsv.check_argvs(self)
         
-    def default(self, line):
-        try:super().default(line)
-        except Exception as e:self.do_help()
+    def emptyline(self):print("[help]? I think you should write something.") 
+    def default(self, line):self.do_help(line)
         
     def do_passwd(self, line):self.password.do_passwd(line)
     def do_password(self, line):self.password.do_passwd(line)
@@ -114,5 +113,3 @@ class MeAPP(cmd.Cmd):
         password = getpass.getpass(prompt='[] Password: ')    
         if password == config.get("me", "password"):return True
         else: return False
-    
-    
