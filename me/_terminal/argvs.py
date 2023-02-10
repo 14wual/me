@@ -51,6 +51,4 @@ class CheckArgsv:
             elif sys.argv[1] == 'i':self.other.do_info(line)
             elif sys.argv[1] == 'help':self.other.do_help(line)
             elif sys.argv[1] == 'h':self.other.do_help(line)
-        else:self.other.do_help(line)
-              
-    
+            else:self.other.do_help(line)
