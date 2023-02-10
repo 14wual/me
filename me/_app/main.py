@@ -21,6 +21,7 @@ except ImportError: raise ImportError("Failed to import modules. Make sure it is
 
 # --------------------Intern Imports--------------------
 from _app import commands  
+from _terminal.argvs import CheckArgsv
     
 # --------------------APP--------------------    
 class MeAPP(cmd.Cmd):
@@ -52,6 +53,7 @@ class MeAPP(cmd.Cmd):
         self.task = commands.DoTask(self)
         
         self.other.do_hello(line='')
+        CheckArgsv.check_argvs(self)
         
     def default(self, line):
         try:super().default(line)
@@ -74,8 +76,8 @@ class MeAPP(cmd.Cmd):
     def do_cont(self, line):self.contacts.do_contacts(line)
     def do_notes(self, line):self.notes.do_notes(line)
     def do_pc(self, line):self.pc.do_pc(line)
-    def to_task(self, line):self.task.do_tasks(line)
-    def to_t(self, line):self.task.do_tasks(line)
+    def do_task(self, line):self.task.do_tasks(line)
+    def do_t(self, line):self.task.do_tasks(line)
     def do_clear(self, line):os.system("clear")
     def do_cls(self, line):os.system("clear")
     def do_exit(self, line):return True
@@ -86,6 +88,23 @@ class MeAPP(cmd.Cmd):
     def do_i(self, line):self.other.do_info(line)
     def do_help(self, line):self.other.do_help(line)
     def do_h(self, line):self.other.do_help(line)
+    
+    def complete_passwd(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
+    def complete_password(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
+    def complete_p(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
+    def complete_search(self, text, line, begidx, endidx):self.browser.complete_search(text, line, begidx, endidx)
+    def complete_s(self, text, line, begidx, endidx):self.browser.complete_search(text, line, begidx, endidx)
+    def complete_browser(self, text, line, begidx, endidx):self.browser.complete_browser(text, line, begidx, endidx)
+    def complete_brow(self, text, line, begidx, endidx):self.browser.complete_browser(text, line, begidx, endidx)
+    def complete_b(self, text, line, begidx, endidx):self.browser.complete_browser(text, line, begidx, endidx)
+    def complete_check(self, text, line, begidx, endidx):self.check.complete_check(text, line, begidx, endidx)
+    def complete_contacts(self, text, line, begidx, endidx):self.contacts.complete_contacts(text, line, begidx, endidx)
+    def complete_c(self, text, line, begidx, endidx):self.contacts.complete_contacts(text, line, begidx, endidx)
+    def complete_cont(self, text, line, begidx, endidx):self.contacts.complete_contacts(text, line, begidx, endidx)
+    def complete_notes(self, text, line, begidx, endidx):self.notes.complete_notes(text, line, begidx, endidx)
+    def complete_pc(self, text, line, begidx, endidx):self.pc.complete_pc(text, line, begidx, endidx)
+    def complete_task(self, text, line, begidx, endidx):self.task.complete_tasks(text, line, begidx, endidx)
+    def complete_t(self, text, line, begidx, endidx):self.task.complete_tasks(text, line, begidx, endidx)
     
     def check_access():
         
