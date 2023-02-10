@@ -44,6 +44,116 @@ Type `help` in the terminal me or `me help` in your own terminal to see all avai
 
 ## Avilable Commands:
 
+### Browser
+
+```
+Browser Commands:
+    browser: search and browse bookmarks.
+    browser --add/-a: add a new bookmark.
+    browser --delete/-d: delete a new bookmark.
+    browser --list/-l: list your bookmarks.
+    search: do a google search.
+    
+    *Shortcuts: [search], [browser], [b], [s], [brow]
+```
+
+### Mail
+
+```
+[mail]: Send an email.
+```
+### Contact book
+
+```
+[contacts] Contacts Commands:
+    contacts --modify/-m: look for a contact.
+    contacts --search/-s: modify an existing contact.
+    contacts --add/-a: add a new contact.
+    contacts --delete/-d: delete an existing contact.
+    
+    *Shortcuts: [contacts], [cont], [c]
+```
+
+### Password manager
+
+```
+[passwd] Password Commands:
+    passwd --add/-a: Add New Key to Vault.
+    passwd --copy/-c: Search & Copy Key from Vault.
+    passwd --matter: Import Keys from csv to Vault.
+    passwd --modify/-m: Search & Modify Key from Vault.
+    
+    *Shortcuts: [password], [passwd], [p]
+```
+
+### Task Manager
+
+```
+[task] Tasks Commands:
+    task --add/-a: Add New Task.
+    task --done/-d: Mark a task as done.
+    task --list/-l: List all pending tasks
+    task --today/-t: Read today's tasks.
+
+    *Shortcuts: [task], [t]
+```
+
+### Notes app
+
+```
+[notes] Notes Commands:
+    notes --new/-n: Create a new note.
+    notes --read/-r: View all notes, select one write/read.
+    notes --delete/-d: Delete a note.
+    
+    *Shortcuts: [notes], [n]
+```
+
+### Performance commands
+
+```    
+[pc] PC Commands:
+    pc --all/-a: Print all logs
+    pc --ram/-r: Current status of: ram
+    pc --cpu/-c: Current status of: cpu
+    pc --disks/-d: Current status of: disks
+    pc --processor/-p: Current status of: processor
+```
+
+### Checks
+
+```
+[check] Check Commands:
+    check --connect/-c: Check connectivity with a web or ip.
+    check --path/-p: Check if a directory exists.
+    check --file/-f: Ceck if a file exists.
+    second options/optional: -w: write the directory, url, ... (string)
+        check --command -w example
+```
+
+### Terminal Python
+
+Under development
+
+```     
+[python] or [py]: Create a python terminal.
+```
+
+### Other /me commands
+
+```
+Other Commands:
+    [help] or [h]: display this panel
+    clear/cls: clear terminal
+    info/i: View app information
+    hello/hi: Initial greeting of the app
+    exit/bye: Exit the program
+```
+
+<details>
+
+<summary>Show Set</summary>
+
 ```
 Browser Commands:
     browser: search and browse bookmarks.
@@ -55,7 +165,7 @@ Browser Commands:
     *Shortcuts: [search], [browser], [b], [s], [brow]
 
 [mail]: Send an email.
-    
+
 [contacts] Contacts Commands:
     contacts --modify/-m: look for a contact.
     contacts --search/-s: modify an existing contact.
@@ -63,7 +173,7 @@ Browser Commands:
     contacts --delete/-d: delete an existing contact.
     
     *Shortcuts: [contacts], [cont], [c]
-
+    
 [passwd] Password Commands:
     passwd --add/-a: Add New Key to Vault.
     passwd --copy/-c: Search & Copy Key from Vault.
@@ -79,14 +189,14 @@ Browser Commands:
     task --today/-t: Read today's tasks.
 
     *Shortcuts: [task], [t]
-    
+
 [notes] Notes Commands:
     notes --new/-n: Create a new note.
     notes --read/-r: View all notes, select one write/read.
     notes --delete/-d: Delete a note.
     
     *Shortcuts: [notes], [n]
-    
+
 [pc] PC Commands:
     pc --all/-a: Print all logs
     pc --ram/-r: Current status of: ram
@@ -100,9 +210,9 @@ Browser Commands:
     check --file/-f: Ceck if a file exists.
     second options/optional: -w: write the directory, url, ... (string)
         check --command -w example
-        
+
 [python] or [py]: Create a python terminal.
-    
+
 Other Commands:
     [help] or [h]: display this panel
     clear/cls: clear terminal
@@ -110,6 +220,8 @@ Other Commands:
     hello/hi: Initial greeting of the app
     exit/bye: Exit the program
 ```
+
+</details>
 
 ## Install
 
@@ -182,6 +294,12 @@ notes = /usr/local/etc/me/usr/txt/log/notes_inputs.csv
 ### Why does it ask me for sudo?
 
 Due to the path where the program is located (it is in a common path in all operating systems and is there to create the fewest possible incompatibilities) it is necessary to ask for root. Since many of the functionalities write files inside the subpaths. Path `/usr/local/etc/me/`
+
+## Fun facts
+
+### Autocomplete
+
+Did you know that /me has an **autocompletion**, this is used for the arguments of the different commands | Example, type '`contacts --m`' and press `tab` and you will see that '`--m`' becomes '`--modify`'
 
 ## License
 Copyright © 2023 Carlos Padilla.
