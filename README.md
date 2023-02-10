@@ -231,7 +231,7 @@ Clone the repository and go into the me/ folder
 
 ```bash
 git clone https://github.com/14wual/me.git
-cd me
+cd me/me/_install
 ```
 
 Give the bash setup file execution permission
