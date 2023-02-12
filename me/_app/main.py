@@ -22,6 +22,7 @@ except ImportError: raise ImportError("Failed to import modules. Make sure it is
 # --------------------Intern Imports--------------------
 from _app import commands  
 from _terminal.argvs import CheckArgsv
+from _functs.files import Checks
     
 # --------------------APP--------------------    
 class MeAPP(cmd.Cmd):
@@ -51,6 +52,7 @@ class MeAPP(cmd.Cmd):
         self.password = commands.DoPassword(self)
         self.other = commands.DoOther(self)
         self.task = commands.DoTask(self)
+        self.files = commands.DoFiles(self)
         
         self.other.do_hello(line='')
         CheckArgsv.check_argvs(self)
@@ -88,6 +90,10 @@ class MeAPP(cmd.Cmd):
     def do_help(self, line):self.other.do_help(line)
     def do_h(self, line):self.other.do_help(line)
     
+    def do_pwd(self, line):print(Checks.getCurrentPath())
+    def do_cd(self, line):self.files.change_path(path=line)
+    def do_save(self, line):self.files.save(line=line)
+
     def complete_passwd(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
     def complete_password(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
     def complete_p(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
@@ -104,6 +110,11 @@ class MeAPP(cmd.Cmd):
     def complete_pc(self, text, line, begidx, endidx):self.pc.complete_pc(text, line, begidx, endidx)
     def complete_task(self, text, line, begidx, endidx):self.task.complete_tasks(text, line, begidx, endidx)
     def complete_t(self, text, line, begidx, endidx):self.task.complete_tasks(text, line, begidx, endidx)
+
+    def complete_cd(self, text, line, begidx, endidx):
+        if not text:completions = os.listdir('.')
+        else:completions = [f for f in os.listdir('.') if f.startswith(text)]
+        return completions
     
     def check_access():
         
