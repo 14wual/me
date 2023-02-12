@@ -24,6 +24,7 @@ from _functs.password import Passwd
 from _functs.notes import Notes
 from _functs.browser import Browser
 from _functs.check import Check
+from _functs.files import Checks, Save
 from _functs.pc import PC
 from _functs.github import Display
 from _functs.task import Tasks
@@ -94,6 +95,32 @@ class DoPython:
             if cm == "":break
             
     def do_py(self, line):self.do_python(line='')
+    
+class DoFiles:
+    
+    def __init__(self, meapp):
+        self.meapp = MeAPP
+        
+    def change_path(self, path=Checks.getHomePath()):
+        try:
+            os.chdir(path)
+            print("Current directory:", Checks.getCurrentPath())
+        except:print("No such directory")
+        
+    def save(self, line):
+        
+        parser = argparse.ArgumentParser(description='Save Commands')
+        
+        parser.add_argument('--save', dest='save', action='store_true', help='Save new path')
+        parser.add_argument('-s', dest='save', action='store_true', help='Save new Path')
+        parser.add_argument('--view', dest='view', action='store_true', help='View Save Paths')
+        parser.add_argument('-v', dest='view', action='store_true', help='View Save Paths')
+        
+        args = parser.parse_args(line.split())
+        
+        if args.save:Save.printSaved(self)
+        elif args.save:Save.save_path(self)
+        else:print("ArgsError: the 'save' command needs arguments | [--save][-s] [--view][-v]")
     
 class DoBrowser:
     
