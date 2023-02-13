@@ -500,7 +500,10 @@ Other Commands:
     clear/cls: clear terminal
     info/i: View app information
     hello/hi: Initial greeting of the app
-    exit/bye: Exit the program""")
+    exit/bye: Exit the program
+    
+    
+    Do you need more help? >> https://github.com/14wual/me/tree/main/help""")
 
     def do_hello(self, line):  
         config = configparser.ConfigParser()
