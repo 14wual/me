@@ -119,8 +119,27 @@ class DoFiles:
         args = parser.parse_args(line.split())
         
         if args.save:Save.printSaved(self)
-        elif args.save:Save.save_path(self)
+        elif args.view:Save.save_path(self, line)
         else:print("ArgsError: the 'save' command needs arguments | [--save][-s] [--view][-v]")
+        
+    def list_directory_contents(directory):
+        for filename in os.listdir(directory):
+            if filename.startswith('.'):pass
+            else:print(filename)
+                
+    def list_all_directory_contents(directory):
+        with os.scandir(directory) as entries:
+            for entry in entries:
+                print(entry.name)
+            
+    def ls(self, line):
+        
+        parser = argparse.ArgumentParser(description='ls Commands')
+        parser.add_argument('-a', dest='a', action='store_true', help='')
+        args = parser.parse_args(line.split())
+        
+        if not args.a:DoFiles.list_directory_contents(".")
+        else:DoFiles.list_all_directory_contents(".")
     
 class DoBrowser:
     
