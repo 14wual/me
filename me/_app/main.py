@@ -91,7 +91,8 @@ class MeAPP(cmd.Cmd):
     def do_help(self, line):self.other.do_help(line)
     def do_h(self, line):self.other.do_help(line)
     def do_games(self, line):self.games.view(line)
-    def do_rps(self, line):self.games.rps(line)
+    def do_rps(self, line):self.games.do_rps(line)
+    def do_gtn(self, line):self.games.do_gtn(line)
     
     def do_pwd(self, line):print(Checks.getCurrentPath())
     def do_cd(self, line):self.files.change_path(path=line)
