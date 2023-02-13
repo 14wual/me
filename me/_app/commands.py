@@ -20,7 +20,7 @@ except ImportError: raise ImportError("Failed to import modules. Make sure it is
 # --------------------Intern Imports--------------------
 from _app.main import MeAPP
 
-from _functs.password import Passwd
+from _functs.password import Passwd, GeneratePasswd
 from _functs.notes import Notes
 from _functs.browser import Browser
 from _functs.check import Check
@@ -339,18 +339,22 @@ class DoPassword:
         parser.add_argument('-c', dest='copy', action='store_true', help='Search & Copy Key from Vault')
         parser.add_argument('--matter', dest='matter', action='store_true', help='Import Keys from csv to Vault')
         parser.add_argument('--delete', dest='delete', type=str, help='Search & Modify Key from Vault ')
-        parser.add_argument('--d', dest='delete', type=str, help='Search & Modify Key from Vault ')
+        parser.add_argument('-d', dest='delete', type=str, help='Search & Modify Key from Vault ')
+        parser.add_argument('--generate', dest='generate', type=str, help='Generate a new password ')
+        parser.add_argument('-g', dest='generate',nargs=1, type=str, help='Generate a new password ')
+        parser.add_argument('--gen', dest='generate',nargs=1, type=str, help='Generate a new password ')
 
         args = parser.parse_args(line.split())
-
-        if MeAPP.check_access() == True:
+        
+        if args.generate:GeneratePasswd.new()
+        elif MeAPP.check_access() == True:
             
             if args.copy:Passwd.copy()
             elif args.matter:Passwd.matter()
             elif args.delete:Passwd.modify()
             elif args.add:Passwd.add()
-            else:print("ArgsError: the 'passwd' command needs arguments | [--add] [--copy] [--matter] [--modify]")
-            
+            else:print("ArgsError: the 'passwd' command needs arguments | [--add][-a] [--copy][-c] [--matter] [--modify][-m] [--generate][--gen][-g]")
+
         else:print("Error: You must be login to run this command")
         
 class DoTask:
@@ -435,6 +439,7 @@ class DoOther:
     passwd --copy/-c: Search & Copy Key from Vault.
     passwd --matter: Import Keys from csv to Vault.
     passwd --modify/-m: Search & Modify Key from Vault.
+    passwd --generate/-gen/-g: Generate a new password.
     
     *Shortcuts: [password], [passwd], [p]
 
