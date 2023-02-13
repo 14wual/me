@@ -53,6 +53,7 @@ class MeAPP(cmd.Cmd):
         self.other = commands.DoOther(self)
         self.task = commands.DoTask(self)
         self.files = commands.DoFiles(self)
+        self.games = commands.DoGames(self)
         
         self.other.do_hello(line='')
         CheckArgsv.check_argvs(self)
@@ -89,11 +90,23 @@ class MeAPP(cmd.Cmd):
     def do_i(self, line):self.other.do_info(line)
     def do_help(self, line):self.other.do_help(line)
     def do_h(self, line):self.other.do_help(line)
+    def do_games(self, line):self.games.view(line)
+    def do_rps(self, line):self.games.rps(line)
     
     def do_pwd(self, line):print(Checks.getCurrentPath())
     def do_cd(self, line):self.files.change_path(path=line)
     def do_save(self, line):self.files.save(line=line)
     def do_ls(self, line):self.files.ls(line=line)
+    
+    def do_mga(self, line):print("Functionality under development, not yet available")
+    def do_gtn(self, line):print("Functionality under development, not yet available")
+    def do_cp(self, line):print("Functionality under development, not yet available")
+    def do_mv(self, line):print("Functionality under development, not yet available")
+    def do_rm(self, line):print("Functionality under development, not yet available")
+    def do_rm(self, line):print("Functionality under development, not yet available")
+    def do_mkdir(self, line):print("Functionality under development, not yet available")
+    def do_view(self, line):print("Functionality under development, not yet available")
+    def do_ren(self, line):print("Functionality under development, not yet available")
 
     def complete_passwd(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
     def complete_password(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
