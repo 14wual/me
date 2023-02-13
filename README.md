@@ -84,6 +84,7 @@ Browser Commands:
     passwd --copy/-c: Search & Copy Key from Vault.
     passwd --matter: Import Keys from csv to Vault.
     passwd --modify/-m: Search & Modify Key from Vault.
+    passwd --generate/-gen/-g: Generate a new password.
     
     *Shortcuts: [password], [passwd], [p]
 ```
@@ -224,6 +225,7 @@ Browser Commands:
     passwd --copy/-c: Search & Copy Key from Vault.
     passwd --matter: Import Keys from csv to Vault.
     passwd --modify/-m: Search & Modify Key from Vault.
+    passwd --generate/-gen/-g: Generate a new password.
     
     *Shortcuts: [password], [passwd], [p]
 
