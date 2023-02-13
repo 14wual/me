@@ -29,7 +29,7 @@ from _functs.pc import PC
 from _functs.github import Display
 from _functs.task import Tasks
 from _functs.contacts import Modify, Add, Search
-from _functs.rps import RPS
+from _functs.games import RPS, GTN
 
 # --------------------APP--------------------
 class DoMail:
@@ -402,7 +402,8 @@ class DoGames:
     to repeat them in the correct order. Each time the user completes a level, the game becomes more difficult by adding
     more numbers to the sequence.""")
         
-    def rps(self, line):RPS(self)
+    def do_rps(self, line):RPS(self)
+    def do_gtn(self, line):GTN(self)
     
 class DoOther:
     
