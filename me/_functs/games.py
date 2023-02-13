@@ -7,7 +7,7 @@
 # See proyect >> https://github.com/14wual/me
 # Follow me >> https://twitter.com/codewual
 
-# Based on: https://github.com/14wual/Random-Scripts/blob/main/Scripts/2022/Others/RockPaperScissors.py
+# (RPS) Based on: https://github.com/14wual/Random-Scripts/blob/main/Scripts/2022/Others/RockPaperScissors.py
 
 # --------------------Extern Imports--------------------
 import random
@@ -69,4 +69,37 @@ class RPS:
         print("Round Number %d" % self.round)
         print(f"\nMarker {self.marker_player} (Player) - {self.marker_computer} (Computer)")
         print("\nBYE!")
+
+class GTN:
+    
+    def __init__(self, meapp):
+        self.meapp = MeAPP
         
+        self.round = 0
+        self.number = 3
+        
+        self._round_event()
+        
+    def display_info(self):
+        print("Round Number %d" % self.round)
+        print(f"Choose a number between 0 and {self.number}")
+        
+    def play(self, player):
+        self.round += 1
+        pc_number = random.randint(0, self.number)
+        self.number += 1
+        if pc_number == player: print("Great!")
+        self._round_event()
+        
+    def _round_event(self):
+        GTN.display_info(self)
+        choose = input("\n([Q] to exit) | Choose: ")
+
+        if choose == "q" or choose == "Q":
+            GTN.do_exit(self)
+            sys.exit()
+        else:GTN.play(self, choose)
+    
+    def do_exit(self):
+        print("Have survived: %d" % self.round + "rounds.")
+        print("\nBYE!")
