@@ -22,11 +22,16 @@ config.read(path)
 config.add_section('software')
 config.add_section('me')
 config.add_section('databases')
+config.add_section('save')
 
 config.set('me', 'version', '1.18')
 config.set('me', 'user', user)
 password = input("Write a Password: ")
 config.set('me', 'password', password)
+
+config.set('save', '0', '')
+config.set('save', '1', '')
+config.set('save', '2', '')
 
 path = '/usr/local/etc/me/usr/txt/log/notes_inputs.csv'
 config.set('me', 'notes', path)
