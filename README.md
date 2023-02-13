@@ -29,8 +29,6 @@ Me is an application that allows you to perform certain tasks from the terminal,
 3. [Install](https://github.com/14wual/me#install)
 4. [Gallery](https://github.com/14wual/me#install)
 5. [Possible Mistakes](https://github.com/14wual/me#possible-mistakes)
-   4.1 [Command does not exist](https://github.com/14wual/me#command-does-not-exist)
-   4.2 [NoSectionError](https://github.com/14wual/me#nosectionerror)
 6. About
    5.1 [License](https://github.com/14wual/me#license)
    5.2 [Know Me](https://github.com/14wual/me#-know-me)
