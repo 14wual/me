@@ -24,7 +24,7 @@ config.add_section('me')
 config.add_section('databases')
 config.add_section('save')
 
-config.set('me', 'version', '1.18')
+config.set('me', 'version', '1.38')
 config.set('me', 'user', user)
 password = input("Write a Password: ")
 config.set('me', 'password', password)
