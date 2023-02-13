@@ -93,6 +93,7 @@ class MeAPP(cmd.Cmd):
     def do_pwd(self, line):print(Checks.getCurrentPath())
     def do_cd(self, line):self.files.change_path(path=line)
     def do_save(self, line):self.files.save(line=line)
+    def do_ls(self, line):self.files.ls(line=line)
 
     def complete_passwd(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
     def complete_password(self, text, line, begidx, endidx):self.password.complete_passwd(text, line, begidx, endidx)
