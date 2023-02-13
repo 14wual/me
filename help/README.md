@@ -40,3 +40,8 @@ notes = /usr/local/etc/me/usr/txt/log/notes_inputs.csv
 ### Why does it ask me for sudo?
 
 Due to the path where the program is located (it is in a common path in all operating systems and is there to create the fewest possible incompatibilities) it is necessary to ask for root. Since many of the functionalities write files inside the subpaths. Path `/usr/local/etc/me/`
+
+### Error: argument
+
+On different occasions we write the arguments requested by the commands correctly, but an error something similar to this does not appear: `usage: __init__.py [-example0] [-example1]` and `__init__.py: error: argument '-example_argument': expected 1 argument`
+This is because of the way the `argparse` library is created, if this error still occurs, type the command with the argument and then a "random" text after | Example: `password --generate skdxpmpmd`
