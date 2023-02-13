@@ -23,7 +23,7 @@ config.add_section('software')
 config.add_section('me')
 config.add_section('databases')
 
-config.set('me', 'version', '0.1')
+config.set('me', 'version', '1.83')
 config.set('me', 'user', user)
 password = input("Write a Password: ")
 config.set('me', 'password', password)
