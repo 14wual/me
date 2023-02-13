@@ -85,10 +85,17 @@ class GTN:
         print(f"Choose a number between 0 and {self.number}")
         
     def play(self, player):
-        self.round += 1
+        self.round += 1;self.number += 1
         pc_number = random.randint(0, self.number)
-        self.number += 1
         if pc_number == player: print("Great!")
+        else:
+            print(f"The number was {pc_number}")
+            GTN.do_exit(self)
+            again = input("[Y/n] Play again?: ")
+            if again == 'y' or again == 'Y':
+                self.round = 0
+                self.number = 3
+            else:sys.exit()
         self._round_event()
         
     def _round_event(self):
