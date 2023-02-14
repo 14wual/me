@@ -15,6 +15,8 @@ try:
     import os
     import subprocess
     import smtplib
+    import shutil
+    import time
 except ImportError: raise ImportError("Failed to import modules. Make sure it is installed correctly and is in the PYTHONPATH.")
 
 # --------------------Intern Imports--------------------
@@ -133,14 +135,49 @@ class DoFiles:
             for entry in entries:
                 print(entry.name)
             
-    def ls(self, line):
-        
+    def do_ls(self, line):
         parser = argparse.ArgumentParser(description='ls Commands')
         parser.add_argument('-a', dest='a', action='store_true', help='')
         args = parser.parse_args(line.split())
         
         if not args.a:DoFiles.list_directory_contents(".")
         else:DoFiles.list_all_directory_contents(".")
+        
+    def do_cp(self, line):
+        src, dest = line.split()
+        shutil.copy(src, dest)
+        print("File successfully copied from {} to {}".format(src, dest))
+        
+    def do_mv(self, line):
+        src, dest = line.split()
+        shutil.move(src, dest)
+        print("File successfully moved from {} to {}".format(src, dest))
+        
+    def do_view(self, line):
+        info = os.stat(line)
+        size = info.st_size
+        ctime = info.st_ctime
+        file_type = "File" if os.path.isfile(line) else "Directory"
+        ctime = time.ctime(ctime)
+        print(f"Size: {size} bytes")
+        print(f"Creation Time: {ctime}")
+        print(f"Type: {file_type}")
+        
+    def do_ren(self, line):
+        src, dest = line.split()
+        os.rename(src, dest)
+        
+    def do_rm(self, line):
+        if os.path.exists(line.split()):
+            os.remove(line.split())
+            print("The file has been deleted.")
+        else:print("The file does not exists.")
+        
+    def do_mkdir(self, line):
+        try:
+            os.mkdir(line.split())
+            print(f"The folder {line.split()} has been created.")
+        except FileExistsError:print(f"The folder {line.split()} already exists.")     
     
 class DoBrowser:
     
@@ -400,11 +437,7 @@ class DoGames:
     game is played again until someone wins.
 2. [GTN] Guess the number:
     This game consists of the program choosing a random number and the user has to guess it. Each time the user makes 
-    a guess, the program tells the user if the number is larger or smaller until the user guesses the correct number.
-3. [MGA] Memory game:
-    This game consists of the program showing a series of numbers for a short period of time and then asking the user
-    to repeat them in the correct order. Each time the user completes a level, the game becomes more difficult by adding
-    more numbers to the sequence.""")
+    a guess, the program tells the user if the number is larger or smaller until the user guesses the correct number.""")
         
     def do_rps(self, line):RPS(self)
     def do_gtn(self, line):GTN(self)
