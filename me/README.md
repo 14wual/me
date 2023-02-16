@@ -1,3 +1,5 @@
+Do not try to install the repository with dpkg or using the .deb file. This is still under development and is in an unstable version
+
 # me
 
 Me is an application that allows you to perform certain basic tasks. Manage passwords, contacts, tasks, notes, search the web with a command, emulate python, among others!
@@ -27,7 +29,7 @@ Me is an application that allows you to perform certain tasks from the terminal,
 3. [Install](https://github.com/14wual/me#install)
 4. [Gallery](https://github.com/14wual/me#install)
 5. [Possible Mistakes](https://github.com/14wual/me#possible-mistakes)
-6. About | 
+6. About
    5.1 [License](https://github.com/14wual/me#license)
    5.2 [Know Me](https://github.com/14wual/me#-know-me)
 
@@ -80,6 +82,7 @@ Browser Commands:
     passwd --copy/-c: Search & Copy Key from Vault.
     passwd --matter: Import Keys from csv to Vault.
     passwd --modify/-m: Search & Modify Key from Vault.
+    passwd --generate/-gen/-g: Generate a new password.
     
     *Shortcuts: [password], [passwd], [p]
 ```
@@ -118,6 +121,27 @@ Browser Commands:
     pc --processor/-p: Current status of: processor
 ```
 
+### File Manager
+
+```
+File manager:
+    SAVE:
+        save --save/-s: save the path where you are. (max 3)
+        save --view/-v: view saved paths.
+    ls: shows all files and folders contained in a specific folder.
+    ls -a: shows all files and folders (including hidden ones) contained in a specific folder.
+    cd: change directory.
+    pwd: view current path.   
+    cp: Copy and paste files: allows you to copy files from one folder to another.
+    mv: allows you to move files from one folder to another.
+    rm: Delete Files:  Allows the user to delete unnecessary or unwanted files.
+    rm -r:Delete Directories:  Allows the user to delete unnecessary or unwanted directories.
+    mkdir: Create Folders: Allows the user to create new folders to organize their files.
+    view: View File Details: Displays detailed information about a file, such as its size, creation date, and file type.
+    ren: Rename Files: Allows the user to rename a file to make it easier to find
+
+```
+
 ### Checks
 
 ```
@@ -127,6 +151,21 @@ Browser Commands:
     check --file/-f: Ceck if a file exists.
     second options/optional: -w: write the directory, url, ... (string)
         check --command -w example
+```
+
+### Games
+
+```
+- To find out more, run the command [games]
+- To play a game run the following commands: [rps] [gtn] [mga]
+
+1. [RPS] Rock, Paper, Scissors:
+    It consists of three options: rock, paper or scissors. Each player chooses an option, and then they are compared 
+    to determine who wins. Rock beats scissors, scissors beats paper, and paper beats rock. In the event of a tie, the
+    game is played again until someone wins.
+2. [GTN] Guess the number:
+    This game consists of the program choosing a random number and the user has to guess it. Each time the user makes 
+    a guess, the program tells the user if the number is larger or smaller until the user guesses the correct number.
 ```
 
 ### Terminal Python
@@ -163,7 +202,7 @@ Browser Commands:
     *Shortcuts: [search], [browser], [b], [s], [brow]
 
 [mail]: Send an email.
-
+    
 [contacts] Contacts Commands:
     contacts --modify/-m: look for a contact.
     contacts --search/-s: modify an existing contact.
@@ -171,12 +210,13 @@ Browser Commands:
     contacts --delete/-d: delete an existing contact.
     
     *Shortcuts: [contacts], [cont], [c]
-    
+
 [passwd] Password Commands:
     passwd --add/-a: Add New Key to Vault.
     passwd --copy/-c: Search & Copy Key from Vault.
     passwd --matter: Import Keys from csv to Vault.
     passwd --modify/-m: Search & Modify Key from Vault.
+    passwd --generate/-gen/-g: Generate a new password.
     
     *Shortcuts: [password], [passwd], [p]
 
@@ -187,17 +227,17 @@ Browser Commands:
     task --today/-t: Read today's tasks.
 
     *Shortcuts: [task], [t]
-
+    
 [notes] Notes Commands:
     notes --new/-n: Create a new note.
     notes --read/-r: View all notes, select one write/read.
     notes --delete/-d: Delete a note.
     
     *Shortcuts: [notes], [n]
-
+    
 [pc] PC Commands:
     pc --all/-a: Print all logs
-    pc --ram/-r: Current status of: ram
+    pc --ram/-r: Current status of: do
     pc --cpu/-c: Current status of: cpu
     pc --disks/-d: Current status of: disks
     pc --processor/-p: Current status of: processor
@@ -208,9 +248,29 @@ Browser Commands:
     check --file/-f: Ceck if a file exists.
     second options/optional: -w: write the directory, url, ... (string)
         check --command -w example
+        
+File manager:
+    SAVE:
+        save --save/-s: save the path where you are. (max 3)
+        save --view/-v: view saved paths.
+    ls: shows all files and folders contained in a specific folder.
+    ls -a: shows all files and folders (including hidden ones) contained in a specific folder.
+    cd: change directory.
+    pwd: view current path.
+    cp: Copy and paste files: allows you to copy files from one folder to another.
+    mv: allows you to move files from one folder to another.
+    rm: Delete Files:  Allows the user to delete unnecessary or unwanted files.
+    rm -r:Delete Directories:  Allows the user to delete unnecessary or unwanted directories.
+    mkdir: Create Folders: Allows the user to create new folders to organize their files.
+    view: View File Details: Displays detailed information about a file, such as its size, creation date, and file type.
+    ren: Rename Files: Allows the user to rename a file to make it easier to find
 
 [python] or [py]: Create a python terminal.
 
+GAMES:
+ - To play a game run the following commands: [rps] [gtn] [mga]
+ - To find out more, run the command [games]
+    
 Other Commands:
     [help] or [h]: display this panel
     clear/cls: clear terminal
@@ -229,7 +289,7 @@ Clone the repository and go into the me/ folder
 
 ```bash
 git clone https://github.com/14wual/me.git
-cd me
+cd me/me/_install
 ```
 
 Give the bash setup file execution permission
@@ -296,7 +356,7 @@ Due to the path where the program is located (it is in a common path in all oper
 ### Error: argument
 
 On different occasions we write the arguments requested by the commands correctly, but an error something similar to this does not appear: `usage: __init__.py [-example0] [-example1]` and `__init__.py: error: argument '-example_argument': expected 1 argument`
-This is because of the way the `argparse` library is created, if this error still occurs, type the command with the argument and then a "random" text after | Example: `password --generate ueehfdoi`
+This is because of the way the `argparse` library is created, if this error still occurs, type the command with the argument and then a "random" text after | Example: `password --generate skdxpmpmd`
 
 ## Fun facts
 
