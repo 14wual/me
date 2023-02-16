@@ -131,10 +131,7 @@ File manager:
     ls: shows all files and folders contained in a specific folder.
     ls -a: shows all files and folders (including hidden ones) contained in a specific folder.
     cd: change directory.
-    pwd: view current path.
-    
-    Functionality under development, not yet available!
-    
+    pwd: view current path.   
     cp: Copy and paste files: allows you to copy files from one folder to another.
     mv: allows you to move files from one folder to another.
     rm: Delete Files:  Allows the user to delete unnecessary or unwanted files.
@@ -159,8 +156,8 @@ File manager:
 ### Games
 
 ```
-To find out more, run the command [games]
-To play a game run the following commands: [rps] [gtn] [mga]
+- To find out more, run the command [games]
+- To play a game run the following commands: [rps] [gtn] [mga]
 
 1. [RPS] Rock, Paper, Scissors:
     It consists of three options: rock, paper or scissors. Each player chooses an option, and then they are compared 
@@ -169,10 +166,6 @@ To play a game run the following commands: [rps] [gtn] [mga]
 2. [GTN] Guess the number:
     This game consists of the program choosing a random number and the user has to guess it. Each time the user makes 
     a guess, the program tells the user if the number is larger or smaller until the user guesses the correct number.
-3. [MGA] Memory game:
-    This game consists of the program showing a series of numbers for a short period of time and then asking the user
-    to repeat them in the correct order. Each time the user completes a level, the game becomes more difficult by adding
-    more numbers to the sequence.
 ```
 
 ### Terminal Python
@@ -264,7 +257,6 @@ File manager:
     ls -a: shows all files and folders (including hidden ones) contained in a specific folder.
     cd: change directory.
     pwd: view current path.
-    
     cp: Copy and paste files: allows you to copy files from one folder to another.
     mv: allows you to move files from one folder to another.
     rm: Delete Files:  Allows the user to delete unnecessary or unwanted files.
